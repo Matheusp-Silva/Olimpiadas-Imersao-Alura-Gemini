@@ -8,8 +8,8 @@ function pesquisar() {
     let resultados = "";
     let tags = "";
 
-    if (!campoPesquisa) {
-        section.innerHTML = "Nenehum atleta foi encontrado na base de dados."
+    if (campoPesquisa == "") {
+        section.innerHTML = "nenhum atleta foi encontrado na base de dados."
         return
     }
 
@@ -19,7 +19,7 @@ function pesquisar() {
         descricao = dado.descricao.toLocaleLowerCase();
         tags = dado.tags.toLocaleLowerCase();
 
-        if (dado.titulo.includes(campoPesquisa) || dado.descricao.includes(campoPesquisa) || dado.tags.includes(campoPesquisa)) {
+        if (titulo.includes(campoPesquisa) || descricao.includes(campoPesquisa) || tags.includes(campoPesquisa)) {
             
             resultados += `
             <div class="item-resultado">
@@ -33,7 +33,7 @@ function pesquisar() {
         }
     }
 
-    if (!resultados) {
+    if (resultados == "") {
         section.innerHTML = "Atleta não registrado na base de dados.";
         return
     }
